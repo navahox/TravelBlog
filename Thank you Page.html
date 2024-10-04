@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank You</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                height: 100%; /* Sets body height to full viewport height */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family for the page */
+                margin: 0; /* Removes default margin */
+                padding: 0; /* Removes default padding */
+                box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+            }
+
+            /* Container for centering content */
+            .container {
+                height: 100vh; /* Sets container height to full viewport height */
+                display: flex; /* Enables flexbox layout */
+                justify-content: center; /* Centers content horizontally */
+                align-items: center; /* Centers content vertically */
+                text-align: center; /* Center-aligns text */
+            }
+
+            /* Background image styling */
+            .background-image {
+                position: absolute; /* Positions background image absolutely */
+                top: 0; /* Positions it at the top */
+                left: 0; /* Positions it at the left */
+                width: 100%; /* Full width of the viewport */
+                height: 100%; /* Full height of the viewport */
+                background-image: url('thailand2.jpg'); /* Background image */
+                background-size: cover; /* Ensures the background image covers the entire area */
+                background-position: center; /* Centers the background image */
+                z-index: -1; /* Places it behind other content */
+            }
+
+            /* Content styling */
+            .content {
+                color: white; /* Text color for the content */
+                z-index: 1; /* Ensures content is on top of the background */
+            }
+
+            /* Main heading styling */
+            .content h1 {
+                font-size: 5em; /* Main heading font size */
+                margin-bottom: 10px; /* Bottom margin */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
+            }
+
+            /* Paragraph styling */
+            .content p {
+                font-size: 1.5em; /* Paragraph font size */
+                margin-bottom: 20px; /* Bottom margin */
+            }
+
+            /* Button styling */
+            .btn-outline-dark {
+                font-size: 20px; /* Button font size */
+                color: white; /* Button text color */
+                padding: 10px; /* Padding for the button */
+                font-weight: bold; /* Makes button text bold */
+                border: 3px solid white !important; /* White border */
+                border-radius: 0%; /* No rounded corners */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
+            }
+            
+            /* Button hover effect */
+            .btn-outline-dark:hover {
+                background-color: rgb(234, 137, 68); /* Changes background color on hover */
+                border: 3px solid rgb(234, 137, 68) !important; /* Changes border color on hover */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"> <!-- Container for centering content -->
+            <div class="background-image"></div> <!-- Background image layer -->
+            <div class="content">
+                <h1>THANK YOU!</h1> <!-- Main heading -->
+                <p>We got your message, we will update you soon. Thank you for
+                your feedback! <i class="bi bi-emoji-grin"></i></p>
+                
+                <!-- Button to return to home page -->
+                <a href="../HomePage.html"><button type="button" class="btn
+                btn-outline-dark">Back to Home Page</button></a>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Blog on Thailand</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <style>
+            /* Make the page look nice */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a nice font */
+                margin: 0; /* Remove space around the edge of the page */
+                padding: 0; /* Remove inner space of the page */
+                background-color: whitesmoke; /*Sets the background color*/
+            }
+
+            /* Navbar styling */
+            .navbar {
+                background-color: rgba(15, 16, 16, 0.9); /* Dark background with slight transparency */
+                overflow: hidden; /* Ensures content doesn't overflow the navbar */
+                position: sticky; /* Keeps the navbar at the top of the page when scrolling */
+                top: 0; /* Aligns the navbar to the top of the viewport */
+                display: flex; /* Uses flexbox to align children in a row */
+                justify-content: space-between; /* Ensures space between the logo and navigation links */
+                padding: 10px 20px; /* Adds padding inside the navbar */
+                z-index: 1000; /* Ensures the navbar stays above other elements on the page */
+                align-items: center; /* Vertically aligns items in the navbar */
+            }
+
+            /* Logo styling inside the navbar */
+            .navbar .logo a {
+                font-weight: bold; /* Makes the logo text bold */
+                font-size: 1.5em; /* Increases the font size of the logo */
+                color: rgb(255, 255, 253); /* Sets the text color to white */
+                text-decoration: none; /* Removes the underline from the logo link */
+                font-style: italic; /* Applies italic styling to the logo text */
+            }
+
+            /* Navigation links container */
+            .nav-links {
+                display: flex; /* Uses flexbox to arrange links in a row */
+                gap: 25px; /* Adds spacing between the navigation links */
+            }
+
+            /* Individual navigation link styling */
+            .nav-links a {
+                color: rgb(217, 216, 213); /* Light gray color for the link text */
+                text-align: center; /* Centers the text inside each link */
+                padding: 14px 20px; /* Adds padding inside each link for better clickability */
+                text-decoration: none; /* Removes the underline from the links */
+                font-weight: bold; /* Makes the text of the links bold */
+                transition: color 0.2s, border-bottom 0.2s; /* Smooth transition for color and border changes on hover */
+            }
+
+            /* Hover effect for navigation links */
+            .nav-links a:hover {
+                color: rgb(234, 137, 68); /* Changes the text color to orange on hover */
+                border-bottom: 2px solid rgb(234, 137, 68); /* Adds an orange bottom border when hovered */
+            }
+            
+            /* Style the second-level heading */
+            h2 {
+                text-align: center; /* Put the heading in the middle */
+                color: rgb(234, 137, 68); /* Make the heading orange */
+                padding-top: 20px;
+                font-size: 5vh;
+            }
+        
+            /* Style the container for all blog posts */
+            .blog-posts {
+                display: flex; /* Arrange items in a row */
+                flex-wrap: wrap; /* Allow items to go to the next line if needed */
+                justify-content: space-around; /* Spread out the items evenly */
+                max-width: 1200px; /* Set a maximum width */
+                margin: 32px auto; /* Center the container and add space around it */
+                padding: 0 16px; /* Add some space on the left and right */
+            }
+        
+            /* Style each blog post card */
+            .card {
+                background-color: rgb(255, 255, 255); /* Make the card white */
+                border-radius: 8px; /* Round the corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+                margin: 16px; /* Add space around each card */
+                overflow: hidden; /* Hide anything that goes outside the card */
+                width: 30%; /* Make each card take up 30% of the container width */
+                transition: transform 0.2s; /* Make the hover effect smooth */
+                text-decoration: none; /* Remove the underline from links */
+                color: inherit; /* Use the default text color */
+                display: flex; /* Use flexible box layout */
+                flex-direction: column; /* Stack the elements vertically */
+            }
+        
+            /* Add an effect when hovering over a card */
+            .card:hover {
+                transform: translateY(-5px); /* Move the card up a bit */
+            }
+        
+            /* Style the images in the cards */
+            .card img {
+                width: 100%; /* Make the image fill the width of the card */
+                height: 200px; /* Set a fixed height for all images */
+                object-fit: cover; /* Make sure the image covers the area without stretching */
+            }
+        
+            /* Style the text part of the cards */
+            .card-content {
+                padding: 16px; /* Add space inside the card */
+                text-align: center; /* Center the text */
+                display: flex; /* Use flexible box layout */
+                flex-direction: column; /* Stack the elements vertically */
+                flex-grow: 1; /* Allow this section to grow and fill the card */
+            }
+        
+            /* Style the titles in the cards */
+            h3 {
+                margin-top: 0; /* Remove space above the title */
+                color: rgb(234, 137, 68); /* Make the title orange */
+            }
+        
+            /* Style the paragraphs in the cards */
+            p {
+                color: rgb(0, 0, 0); /* Make the text black */
+                font-size: 18px; /* Set the text size */
+                flex-grow: 1; /* Allow the paragraph to grow and push the button down */
+            }    
+            
+            /* Style the "Read More" button */
+            .read-more {
+                display: inline-block; /* Make the button inline but block-like */
+                margin-top: 8px; /* Add space above the button */
+                padding: 8px 16px; /* Add space inside the button */
+                background-color: rgb(234, 137, 68); /* Make the button orange */
+                color: rgb(255, 255, 255); /* Make the text white */
+                text-decoration: none; /* Remove the underline */
+                border-radius: 4px; /* Round the corners of the button */
+                transition: background-color 0.3s; /* Make the color change smooth on hover */
+                align-self: center; /* Center the button in the card */
+            }
+
+            /* Change the button color when hovering */
+            .read-more:hover {
+                background-color: rgb(200, 120, 50); /* Make the button darker orange on hover */
+            }
+
+            /* Style the bottom part of the page */
+            footer {
+                text-align: center; /* Centers the text content within the footer */
+                padding: 20px; /* Adds 20px of padding inside the footer on all sides */
+                background-color: rgba(15, 16, 16, 0.9); /* Sets a dark background with slight transparency for the footer */
+                color: rgba(210, 105, 30, 1); /* Applies a brownish-orange color to the text, fully opaque */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow */
+                margin-top: 40px; /* Adds 40px of space above the footer element */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- This is the navigation bar -->
+        <div class="navbar">
+            <div class="logo">  
+                <a href="../HomePage.html">AROUND THAI LANDS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../HomePage.html"><i class="bi bi-house-door"></i> HOME</a>
+                <a href="TravelBlog.html"><i class="bi bi-pen"></i> TRAVEL BLOG</a>
+                <a href="../About Us Page/About Us.html"> <i class="bi bi-people"></i> ABOUT US</a>
+                <a href="../Contact Page/Contact Page.html"><i class="bi bi-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+
+        <!-- This is the title for the blog posts section -->
+        <h2>TRAVEL BLOG POSTS</h2>
+        
+        <!-- This is where all the blog post cards go -->
+        <div class="blog-posts">
+            <!-- This is the card for Bangkok -->
+            <a href="bangkok-blog.html" class="card">
+                <img src="https://w0.peakpx.com/wallpaper/380/978/HD-wallpaper-bangkok-nights-city-buidling-thailand-bangkok.jpg" alt="Bangkok">
+                <div class="card-content">
+                    <h3>Bangkok: The City That Never Sleeps</h3>
+                    <p>Immerse yourself in the bustling streets of Bangkok, where ancient temples meet modern skyscrapers, and every corner offers a taste of its delightful street food.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Phuket -->
+            <a href="phuket-blog.html" class="card">
+                <img src="https://dynamic.tourtravelworld.com/blog_images/not-to-be-missed-tourist-places-in-phuket-20170825031922.jpg" alt="Phuket">
+                <div class="card-content">
+                    <h3>Phuket: Paradise on Earth</h3>
+                    <p>Discover Phuket's stunning beaches, vibrant nightlife, and tranquil temples, offering a perfect blend of relaxation and adventure.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Chiang Mai -->
+            <a href="chiangmai-blog.html" class="card">
+                <img src="https://www.wonderfulpackage.com/uploads/moxie/Article/Inbound/Content_Inbound/%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%95%E0%B8%B8%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B9%80%E0%B8%97%E0%B8%9E1.jpg" alt="Chiang Mai">
+                <div class="card-content">
+                    <h3>Chiang Mai: A Cultural Haven</h3>
+                    <p>Uncover the secrets of Chiang Mai, where history and culture come alive amidst its ancient temples and vibrant markets.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Pattaya -->
+            <a href="pattaya-blog.html" class="card">
+                <img src="https://media.istockphoto.com/id/1307921420/photo/walking-street-in-pattaya-thailand.jpg?s=612x612&w=0&k=20&c=ek-Cvag_q0J3E7AwGMveWdQ6avhV7655qjEyae-9C24=" alt="Pattaya">
+                <div class="card-content">
+                    <h3>Pattaya: Nightlife and Beyond</h3>
+                    <p>Explore Pattaya's lively nightlife, beautiful beaches, and exciting attractions that promise endless entertainment.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Krabi -->
+            <a href="krabi-blog.html" class="card">
+                <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/51/ce/a9.jpg" alt="Krabi">
+                <div class="card-content">
+                    <h3>Krabi: Nature's Masterpiece</h3>
+                    <p>Marvel at Krabi's breathtaking limestone cliffs and crystal-clear waters, perfect for adventurers and nature lovers alike.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Ayutthaya -->
+            <a href="ayutthaya-blog.html" class="card">
+                <img src="https://thailandawaits.com/wp-content/uploads/2023/02/Wat-Phra-Si-Sanphet-at-sunset-800x534.jpg" alt="Ayutthaya">
+                <div class="card-content">
+                    <h3>Ayutthaya: A Journey Through Time</h3>
+                    <p>Travel back in time to Ayutthaya, where the ruins of ancient temples tell stories of a glorious past.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Koh Samui -->
+            <a href="kohsamui-blog.html" class="card">
+                <img src="https://media.istockphoto.com/id/499977613/photo/swing-hang-from-coconut-tree-over-beach-phangan-island-thailand.jpg?s=612x612&w=0&k=20&c=p9ZjM0htFASr3cWxHOiE2qMTsb5x4t7uLRT6WuSXaeI=" alt="Koh Samui">
+                <div class="card-content">
+                    <h3>Koh Samui: Island Bliss</h3>
+                    <p>Indulge in the luxury and tranquility of Koh Samui, where pristine beaches and vibrant nightlife await.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Hua Hin -->
+            <a href="huahin-blog.html" class="card">
+                <img src="https://res.klook.com/image/upload/fl_lossy.progressive,w_432,h_288,c_fill,q_85/activities/azkceydmr6bhibjmdhgg.jpg" alt="Hua Hin">
+                <div class="card-content">
+                    <h3>Hua Hin: Royal Retreat</h3>
+                    <p>Experience the charm of Hua Hin, with its royal palaces, golf courses, and serene beaches.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+            <!-- This is the card for Pai -->
+            <a href="pai-blog.html" class="card">
+                <img src="https://kampatour.com/pic/blog/images/Chiang-Mai-to-Pai-11.jpg" alt="Pai">
+                <div class="card-content">
+                    <h3>Pai: Tranquil Getaway</h3>
+                    <p>Find peace in the rolling hills and laid-back atmosphere of Pai, a hidden gem in northern Thailand.</p>
+                    <div class="read-more">Read More</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- This is the bottom part of the page -->
+        <footer>
+            &copy; 2024 Travel Blog on Thailand. All rights reserved.
+        </footer>
+    </body>
+</html>
+

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bangkok Blog</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <style>
+            /* Set the basic style for the whole page */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
+                margin: 0; /* Remove default margin */
+                padding: 0; /* Remove default padding */
+                background-color: whitesmoke; /*Sets the background color*/
+                color: rgb(51, 51, 51); /* Dark grey text color */
+            }
+        
+            /* Navbar styling */
+            .navbar {
+                background-color: rgba(15, 16, 16, 0.9); /* Dark background with slight transparency */
+                overflow: hidden; /* Ensures content doesn't overflow the navbar */
+                position: sticky; /* Keeps the navbar at the top of the page when scrolling */
+                top: 0; /* Aligns the navbar to the top of the viewport */
+                display: flex; /* Uses flexbox to align children in a row */
+                justify-content: space-between; /* Ensures space between the logo and navigation links */
+                padding: 10px 20px; /* Adds padding inside the navbar */
+                z-index: 1000; /* Ensures the navbar stays above other elements on the page */
+                align-items: center; /* Vertically aligns items in the navbar */
+            }
+
+            /* Logo styling inside the navbar */
+            .navbar .logo a {
+                font-weight: bold; /* Makes the logo text bold */
+                font-size: 1.5em; /* Increases the font size of the logo */
+                color: rgb(255, 255, 253); /* Sets the text color to white */
+                text-decoration: none; /* Removes the underline from the logo link */
+                font-style: italic; /* Applies italic styling to the logo text */
+            }
+
+            /* Navigation links container */
+            .nav-links {
+                display: flex; /* Uses flexbox to arrange links in a row */
+                gap: 25px; /* Adds spacing between the navigation links */
+            }
+
+            /* Individual navigation link styling */
+            .nav-links a {
+                color: rgb(217, 216, 213); /* Light gray color for the link text */
+                text-align: center; /* Centers the text inside each link */
+                padding: 14px 20px; /* Adds padding inside each link for better clickability */
+                text-decoration: none; /* Removes the underline from the links */
+                font-weight: bold; /* Makes the text of the links bold */
+                transition: color 0.2s, border-bottom 0.2s; /* Smooth transition for color and border changes on hover */
+            }
+
+            /* Hover effect for navigation links */
+            .nav-links a:hover {
+                color: rgb(234, 137, 68); /* Changes the text color to orange on hover */
+                border-bottom: 2px solid rgb(234, 137, 68); /* Adds an orange bottom border when hovered */
+            }
+        
+            /* Style for the cover image section */
+            .cover-image {
+                width: 100%; /* Full width */
+                height: 400px; /* viewport height */
+                background-image: url('https://w0.peakpx.com/wallpaper/380/978/HD-wallpaper-bangkok-nights-city-buidling-thailand-bangkok.jpg'); /* Background image */
+                background-size: cover; /* Cover the entire area */
+                background-position: center; /* Center the image */
+                position: relative; /* Position for layering text */
+                display: flex; /* Use flexbox for centering */
+                align-items: center; /* Center vertically */
+                justify-content: center; /* Center horizontally */
+            }
+        
+            /* Add a shadow overlay to the cover image */
+            .cover-image::before {
+                content: ''; /* Required for pseudo-elements */
+                position: absolute; /* Position over the image */
+                top: 0; /* Align to top */
+                left: 0; /* Align to left */
+                right: 0; /* Align to right */
+                bottom: 0; /* Align to bottom */
+                background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+            }
+        
+            /* Style for text over the cover image */
+            .cover-text {
+                position: relative; /* Position over the image */
+                color: rgb(255, 255, 255); /* White text color */
+                text-align: center; /* Center the text */
+                z-index: 1; /* Ensure text is above the overlay */
+            }
+        
+            /* Style for the main heading in the cover text */
+            .cover-text h1 {
+                font-size: 30px; /* Large font size for the main title */
+                margin-bottom: 16px; /* Space below the heading */
+                color: rgb(255, 255, 255); /* Ensure the text is white */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /*Adds a subtle shadow behind the text*/
+            }
+
+            h1, h2 {
+                color: rgb(234, 137, 68); /* Orange text color */         
+            }
+        
+            /* Style for the main content area */
+            .content {
+                max-width: 1000px; /* Limit the width of the content */
+                margin: 40px auto; /* Center the content and add space above and below */
+                padding: 20px; /* Add padding inside the content area */
+                background-color: rgb(255, 255, 255); /* White background */
+                border-radius: 8px; /* Round the corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            }
+
+            /* Style for paragraphs */
+            p {
+                font-size: 20px; /* Set font size for paragraphs */
+            }
+        
+            /* Style for each place section */
+            .place {
+                margin-bottom: 40px; /* Add space between places */
+            }
+        
+            /* Style for images in place sections */
+            .place img {
+                width: 100%; /* Full width of the container */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 8px; /* Round the corners of images */
+            }
+        
+            /* Style for information about each place */
+            .place-info {
+                margin-top: 10px; /* Add space above the info */
+            }
+        
+            /* Style for fee and dress code information */
+            .fee, .dress-code {
+                font-style: italic; /* Make text italic */
+                color: rgb(85, 85, 85); /* Dark grey color */
+            }
+        
+            /* Style for map links */
+            a.map-link {
+                display: inline-block; /* Allow padding */
+                margin-top: 10px; /* Space above the link */
+                color: rgb(234, 137, 68); /* Orange text color */
+                text-decoration: none; /* Remove underline */
+                font-size: 20px; /* Set font size */
+            }
+        
+            /* Style for the footer */
+            footer {
+                text-align: center; /* Centers the text content within the footer */
+                padding: 20px; /* Adds 20px of padding inside the footer on all sides */
+                background-color: rgba(15, 16, 16, 0.9); /* Sets a dark background with slight transparency for the footer */
+                color: rgba(210, 105, 30, 1); /* Applies a brownish-orange color to the text, fully opaque */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow */
+                margin-top: 40px; /* Adds 40px of space above the footer element */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- This is the navigation bar -->
+        <div class="navbar">
+            <div class="logo">  
+                <a href="../HomePage.html">AROUND THAI LANDS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../HomePage.html"><i class="bi bi-house-door"></i> HOME</a>
+                <a href="../Travel Blog Page/TravelBlog.html"><i class="bi bi-pen"></i> TRAVEL BLOG</a>
+                <a href="../About Us Page/About Us.html"> <i class="bi bi-people"></i> ABOUT US</a>
+                <a href="../Contact Page/Contact Page.html"><i class="bi bi-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+
+        <!-- Cover image section -->
+        <div class="cover-image">
+            <div class="cover-text">
+                <h1>Bangkok: The City That Never Sleeps</h1>
+                <p> Explore the Wonders of Bangkok </p>
+            </div>
+        </div>
+
+        <!-- Main content section -->
+        <div class="content">
+            <!-- Wat Arun section -->
+            <div class="place">
+                <h2>1. Wat Arun (Temple of Dawn)</h2>
+                <img src="https://www.renown-travel.com/images/wat-arun-bangkok-l.jpg" alt="Wat Arun">
+                <div class="place-info">
+                    <p>Wat Arun is known for its stunning riverside location and iconic spires. The temple is beautifully adorned with colorful porcelain and seashells, making it a breathtaking sight, especially at sunrise and sunset. Climbing the steep steps to the top offers a panoramic view of the Chao Phraya River and the surrounding area, making it a fun and rewarding experience.</p>
+                    <p class="fee">Entrance Fee: 100 THB</p>
+                    <p class="dress-code">Dress Code: Respectful attire is recommended.</p>
+                    <p>How to get there: To reach Wat Arun, take the BTS Skytrain to Saphan Taksin station. From there, walk to the Sathorn Pier and catch a Chao Phraya Express Boat. Disembark at Tha Tien Pier and take a short ferry ride across the river directly to Wat Arun. The journey offers scenic views of the river and is a pleasant way to travel.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/Wat+Arun+Ratchawararam+Ratchawaramahawihan/@13.7438652,100.488444,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29906eaff2b69:0x86fd997e5694b89d!8m2!3d13.7438652!4d100.488444!16zL20vMDVzNjl0?hl=en-GB&entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+
+            <!-- Icon Siam section -->
+            <div class="place">
+                <h2>2. Icon Siam</h2>
+                <img src="https://scontent.fbkk22-7.fna.fbcdn.net/v/t1.6435-9/69689333_1227508830763034_8832635570330009600_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=ZLfyduOkV6AQ7kNvgGK4qYl&_nc_ht=scontent.fbkk22-7.fna&_nc_gid=A4dTH1UYeLIz3eT6JCpslYM&oh=00_AYB5deO3cxpp6G3fpHBy61-fBtrYxmWkmkGH0mnrPXB9ew&oe=6720C1FB" alt="Icon Siam">
+                <div class="place-info">
+                    <p>Icon Siam is a luxurious shopping complex that offers more than just shopping. It features stunning architecture and a beautiful riverside location. Inside, you'll find a mesmerizing indoor floating market, exquisite art installations, and a wide variety of dining options. It's a fun place to explore with something for everyone, from high-end fashion to unique cultural experiences.</p>
+                    <p class="fee">Entrance Fee: Free</p>
+                    <p class="dress-code">Dress Code: Casual</p>
+                    <p>How to get there: Start your journey by taking the BTS Skytrain to Saphan Taksin station. From there, head to the Sathorn Pier and board the free Icon Siam shuttle boat. The boat ride is not only convenient but also offers a scenic view of the Chao Phraya River, adding to the excitement of your visit.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/ICONSIAM/@13.7264866,100.5073721,17z/data=!3m1!4b1!4m6!3m5!1s0x30e299cd81f01815:0x1660bd86761a92f4!8m2!3d13.7264814!4d100.509947!16s%2Fg%2F11gr60lh1v?hl=en-GB&entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+
+            <!-- Asiatique The Riverfront section -->
+            <div class="place">
+                <h2>3. Asiatique The Riverfront</h2>
+                <img src="https://wallpaperswide.com/download/asiatique_2-wallpaper-3840x2160.jpg" alt="Asiatique The Riverfront">
+                <div class="place-info">
+                    <p>Asiatique The Riverfront combines a night bazaar with a mall, offering a unique shopping and entertainment experience. The beautifully restored warehouses house over 1,500 boutiques and 40 restaurants. The atmosphere is lively and fun, with street performances and a giant Ferris wheel offering stunning views of the city. It's a perfect place for an evening stroll by the river.</p>
+                    <p class="fee">Entrance Fee: Free</p>
+                    <p class="dress-code">Dress Code: Casual</p>
+                    <p>How to get there: Asiatique is easily accessible by taking the BTS Skytrain to Saphan Taksin station. From there, you can catch a free shuttle boat that takes you directly to the pier at Asiatique. The boat ride is enjoyable and provides a great view of the city skyline.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/Asiatique+The+Riverfront/@13.7044191,100.5006922,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29896ef5ceab5:0xcbdfcc8a7d11f856!8m2!3d13.7044191!4d100.5032671!16s%2Fm%2F0vb404w?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer section -->
+        <footer>
+            &copy; 2024 Around Thai Lands. All rights reserved.
+        </footer>
+    </body>
+</html>

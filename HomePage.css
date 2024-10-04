@@ -1,0 +1,375 @@
+/* Global body styles */
+body {
+    background-color: whitesmoke; /* Light background color */
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures padding and border are included in element's width/height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets modern, sans-serif fonts */
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: rgba(15, 16, 16, 0.9); /* Dark, semi-transparent background */
+    overflow: hidden; /* Prevents overflow in the navbar */
+    position: sticky; /* Makes the navbar sticky, staying at the top when scrolling */
+    top: 0; /* Positions navbar at the top of the viewport */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Distributes space between items (logo and links) */
+    padding: 10px 20px; /* Adds padding inside the navbar */
+    z-index: 1000; /* Ensures the navbar stays above other elements */
+    align-items: center; /* Vertically centers items */
+}
+
+/* Logo styles inside the navbar */
+.navbar .logo a {
+    font-weight: bold; /* Bold text for the logo */
+    font-size: 1.5em; /* Enlarges the logo */
+    color: rgb(255, 255, 253); /* White text for the logo */
+    text-decoration: none; /* Removes underline from the logo */
+    font-style: italic; /* Italic font for a stylish look */
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex; /* Flexbox to arrange links horizontally */
+    gap: 25px; /* Adds space between each navigation link */
+}
+
+/* Individual link styles */
+.nav-links a {
+    color: rgb(217, 216, 213); /* Light gray color for the links */
+    text-align: center; /* Centers text within each link */
+    padding: 14px 20px; /* Padding for larger clickable area */
+    text-decoration: none; /* Removes underline from the links */
+    font-weight: bold; /* Bold text for links */
+    transition: color 0.2s, border-bottom 0.2s; /* Smooth transitions for color and border on hover */
+}
+
+/* Hover effect for navigation links */
+.nav-links a:hover {
+    color: rgb(234, 137, 68); /* Changes text color to orange on hover */
+    border-bottom: 2px solid rgb(234, 137, 68); /* Adds an orange underline on hover */
+}
+
+/* Header section with video background */
+.header {
+    position: relative; /* Ensures the video and text overlay are positioned correctly */
+    text-align: center; /* Centers the text content */
+    color: white; /* White text for contrast against video */
+    height: 100vh; /* Makes the header fill the entire viewport height */
+    display: flex; /* Flexbox to center content vertically */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Vertically centers the content */
+}
+
+/* Video background inside the header */
+.header video {
+    position: absolute; /* Makes the video fill the entire header */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Ensures the video covers the entire space without distortion */
+    z-index: -1; /* Places the video behind other content */
+}
+
+/* Dark overlay on top of the video */
+.header::after {
+    content: ''; /* Empty content for the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    z-index: -1; /* Ensures it stays behind the text */
+}
+
+/* Text and content in the header */
+.header-content {
+    position: relative; /* Ensures the content stays above the video */
+    z-index: 1; /* Places content above the overlay and video */
+}
+
+/* Main heading in the header */
+.header h1 {
+    font-size: 80px; /* Large font size for the main title */
+    margin-bottom: 10px; /* Adds space below the title */
+    color: white; /* White text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow behind the text for better visibility */
+}
+
+/* Paragraph text in the header */
+.header p {
+    font-size: 20px; /* Moderate font size */
+    margin-bottom: 50px; /* Adds space below the paragraph */
+    color: white; /* White text */
+}
+
+/* Button styling in the header */
+.btn-outline-dark {
+    font-size: 20px; /* Font size for the button */
+    color: white; /* White text color */
+    padding: 10px; /* Padding inside the button */
+    font-weight: bold; /* Bold text */
+    border: 3px solid white !important; /* White border around the button */
+    border-radius: 0%; /* No border radius for a sharp, rectangular look */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
+
+/* Hover effect for the button */
+.btn-outline-dark:hover {
+    background-color: rgb(234, 137, 68); /* Changes background color to orange on hover */
+    border: 3px solid rgb(234, 137, 68) !important; /* Changes the border to orange */
+}
+
+/* About section styling */
+.about {
+    font-size: 50px; /* Large font size for section title */
+    text-align: center; /* Centers the text */
+    padding: 30px; /* Padding around the content */
+    max-width: 1200px; /* Sets the maximum width */
+    margin: auto; /* Centers the section horizontally */
+    margin-top: 20px; /* Adds space above the section */
+}
+
+/* About section heading */
+.about h2 {
+    color: rgb(234, 137, 68); /* Orange color for the heading */
+    font-weight: bold; /* Bold heading */
+    margin-bottom: 20px; /* Adds space below the heading */
+    display: inline-block; /* Ensures the border appears only below the text */
+    padding-bottom: 5px; /* Padding below the heading */
+}
+
+/* Content in the about section */
+.about-content {
+    font-size: 20px; /* Font size for the content */
+}
+
+/* Links inside the about section */
+.about-content a {
+    text-decoration: none; /* Removes underline from links */
+    color: rgb(223, 146, 73); /* Sets a custom color for links */
+}
+
+/* Content section styles */
+.content {
+    text-align: center; /* Centers the text */
+    padding: 30px; /* Padding around the content */
+    max-width: 1200px; /* Maximum width for the section */
+    margin: auto; /* Centers the section */
+    margin-top: 20px; /* Adds space above the section */
+}
+
+/* Section heading */
+.content h2 {
+    color: rgb(234, 137, 68); /* Orange heading color */
+    margin-bottom: 40px; /* Adds space below the heading */
+    border-bottom: 2px solid rgba(234, 137, 68); /* Orange border below the heading */
+    display: inline-block; /* Keeps the border only under the text */
+    padding-bottom: 5px; /* Adds padding below the heading */
+}
+
+/* Travel blog layout using flexbox */
+.travel-blog {
+    display: flex; /* Flexbox to arrange items */
+    flex-wrap: wrap; /* Wraps items onto new lines if needed */
+    gap: 20px; /* Space between blog cards */
+}
+
+/* Individual card styling */
+.card {
+    background-color: white; /* White background for each card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensures content doesn't overflow the card */
+    flex: 1 1 calc(33% - 40px); /* Flexible card size with responsive behavior */
+    min-width: 250px; /* Ensures cards don't shrink smaller than 250px */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Link styling inside cards */
+.card a {
+    text-decoration: none; /* Removes underline */
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover */
+}
+
+/* Style the images in the cards */
+.card img {
+    width: 100%; /* Make the image fill the width of the card */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Make sure the image covers the area without stretching */
+}
+
+/* Content inside each card */
+.card-content {
+    padding: 20px; /* Adds 20 pixels of padding around the content inside the card for spacing */
+    position: relative; /* Allows positioning of child elements absolutely within this container */
+    display: flex; /* Uses Flexbox layout for the card content */
+    flex-direction: column; /* Arranges child elements in a column */
+    height: 100%; /* Sets the height to fill the card container */
+    text-align: center; /* Centers the text within the card content */
+}
+
+/* Card title */
+.card-content h3 {
+    margin-top: 0; /* Removes the default top margin for the heading to align with the card's top edge */
+    margin-bottom: 20px; /* Adds 20 pixels of space below the heading */
+    color: rgb(234, 137, 68); /* Sets the title color to a specific shade of orange */
+}
+
+/* Card paragraph */
+.card-content p {
+    color: #555; /* Sets the text color to a dark gray for better readability */
+    flex-grow: 1; /* Allows the paragraph to expand and take up available space, pushing other content to the top */
+}
+
+/* Hover effect for 'read more' text */
+.card-content .read-more:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* 'Read more' link styling */
+.read-more, .read-more a {
+    text-align: right; /* Aligns the text to the right */
+    margin-top: 20px; /* Adds space above the link */
+    color: rgb(232, 144, 72); /* Custom color for the link */
+    text-decoration: none; /* Removes underline */
+}
+
+/* Hover effect for 'read more' link */
+.read-more a:hover {
+    color: rgb(255, 180, 118); /* Changes color on hover */
+}
+
+/* Contact section styles */
+.contact-section {
+    text-align: center; /* Centers the text */
+    padding: 30px; /* Padding around the section */
+    max-width: 1200px; /* Sets the maximum width */
+    margin: auto; /* Centers the section */
+    margin-top: 20px; /* Adds space above the section */
+}
+
+/* Contact section heading */
+.contact-section h2 {
+    color: rgb(66, 63, 60); /* Darker heading color */
+    margin-bottom: 10px; /* Adds space below the heading */
+    display: inline-block; /* Keeps border only under the text */
+    padding-bottom: 5px; /* Adds padding below the heading */
+}
+
+/* Contact section paragraph */
+.contact-section p {
+    margin-bottom: 20px; /* Adds space below the paragraph */
+}
+
+/* Contact section links */
+.contact-section a {
+    text-decoration: none; /* Removes underline from links */
+    color: rgb(234, 137, 68); /* Custom orange color for links */
+}
+
+/* Image gallery styles */
+.image-gallery {
+    display: flex; /* Flexbox to arrange images horizontally */
+    justify-content: center; /* Centers the images */
+    overflow-x: auto; /* Allows horizontal scrolling */
+    padding: 10px 0; /* Adds padding above and below the gallery */
+    gap: 1px; /* Adds a small gap between images */
+}
+
+/* Container for each image */
+.image-container {
+    position: relative; /* Allows for caption positioning */
+    display: flex; /* Flexbox for the image */
+    margin: 0 5px; /* Adds space on both sides of each image */
+}
+
+/* Image styles */
+.image-container img {
+    max-width: 200px; /* Limits image width */
+    height: auto; /* Keeps the image's aspect ratio */
+    border-radius: 8px; /* Rounds image corners */
+    transition: transform 0.3s; /* Smooth scale transition on hover */
+}
+
+/* Hover effect for images */
+.image-container img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* Hidden caption below the image */
+.caption {
+    position: absolute; /* Positions caption inside the image container */
+    bottom: 10px; /* Positions caption near the bottom */
+    left: 50%; /* Centers the caption horizontally */
+    transform: translateX(-50%); /* Further centers the caption */
+    border-bottom: 2px solid whitesmoke; /* Adds a white border below the caption */
+    font-weight: bold; /* Bold caption text */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Padding inside the caption */
+    font-size: 14px; /* Small font size */
+    display: none; /* Hidden by default */
+}
+
+/* Show the caption on hover */
+.image-container:hover .caption {
+    display: block; /* Shows the caption */
+    transition: 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Modal styles (for image popup) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning to fill the screen */
+    z-index: 1000; /* Brings the modal above all other elements */
+    padding-top: 100px; /* Adds space above the modal content */
+    left: 0; /* Aligns modal to the left of the screen */
+    top: 0; /* Aligns modal to the top of the screen */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Allows scrolling if content is larger than the viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background with transparency */
+}
+
+/* Modal content (enlarged image) */
+.modal-content {
+    margin: auto; /* Centers the content */
+    display: block; /* Block-level element */
+    width: 50%; /* Default width for the modal content */
+    max-width: 80%; /* Maximum width for larger screens */
+}
+
+/* Close button inside the modal */
+.close {
+    position: absolute; /* Positions close button at the top-right corner */
+    top: 15px;
+    right: 35px;
+    color: #fff; /* White color */
+    font-size: 40px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    transition: 0.3s; /* Smooth transition for color change */
+}
+
+/* Close button hover effect */
+.close:hover, .close:focus {
+    color: #bbb; /* Changes color on hover/focus */
+    text-decoration: none; /* Removes underline */
+    cursor: pointer; /* Pointer cursor for clickability */
+}
+
+/* Footer styles */
+footer {
+    text-align: center; /* Centers the text content within the footer */
+    padding: 20px; /* Adds 20px of padding inside the footer on all sides */
+    background-color: rgba(15, 16, 16, 0.9); /* Sets a dark background with slight transparency for the footer */
+    color: rgba(210, 105, 30, 1); /* Applies a brownish-orange color to the text, fully opaque */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow */
+    margin-top: 40px; /* Adds 40px of space above the footer element */
+}

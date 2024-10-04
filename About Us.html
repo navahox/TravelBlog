@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - Around Thai Lands</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                margin: 0; /* Remove space around the edges of the page */
+                padding: 0; /* Remove inner space of the body */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set the text style */
+                background-color: whitesmoke; /* Light background color */
+                color: rgb(51, 51, 51); /* Set the text color to dark gray */
+                line-height: 1.6; /* Set the space between lines of text */
+            }
+
+            /* Navbar styles */
+            .navbar {
+                background-color: rgba(15, 16, 16, 0.9); /* Dark, semi-transparent background */
+                overflow: hidden; /* Prevents overflow in the navbar */
+                position: sticky; /* Makes the navbar sticky, staying at the top when scrolling */
+                top: 0; /* Positions navbar at the top of the viewport */
+                display: flex; /* Flexbox for layout */
+                justify-content: space-between; /* Distributes space between items (logo and links) */
+                padding: 10px 20px; /* Adds padding inside the navbar */
+                z-index: 1000; /* Ensures the navbar stays above other elements */
+                align-items: center; /* Vertically centers items */
+            }
+
+            /* Logo styles inside the navbar */
+            .navbar .logo a {
+                font-weight: bold; /* Bold text for the logo */
+                font-size: 1.5em; /* Enlarges the logo */
+                color: rgb(255, 255, 253); /* White text for the logo */
+                text-decoration: none; /* Removes underline from the logo */
+                font-style: italic; /* Italic font for a stylish look */
+            }
+
+            /* Navigation links container */
+            .nav-links {
+                display: flex; /* Flexbox to arrange links horizontally */
+                gap: 25px; /* Adds space between each navigation link */
+            }
+
+            /* Individual link styles */
+            .nav-links a {
+                color: rgb(217, 216, 213); /* Light gray color for the links */
+                text-align: center; /* Centers text within each link */
+                padding: 14px 20px; /* Padding for larger clickable area */
+                text-decoration: none; /* Removes underline from the links */
+                font-weight: bold; /* Bold text for links */
+                transition: color 0.2s, border-bottom 0.2s; /* Smooth transitions for color and border on hover */
+            }
+
+            /* Hover effect for navigation links */
+            .nav-links a:hover {
+                color: rgb(234, 137, 68); /* Changes text color to orange on hover */
+                border-bottom: 2px solid rgb(234, 137, 68); /* Adds an orange underline on hover */
+            }
+
+            .cover {
+                height: 100vh; /* Make the cover as tall as the screen */
+                position: relative; /* Allow positioning of child elements */
+                display: flex; /* Use flexible layout */
+                align-items: center; /* Center items vertically */
+                justify-content: center; /* Center items horizontally */
+                overflow: hidden; /* Hide anything that goes outside */
+            }
+
+            .cover img {
+                width: 100%; /* Make the image as wide as its container */
+                height: 100%; /* Make the image as tall as its container */
+                object-fit: cover; /* Make sure the image covers the area without stretching */
+                position: absolute; /* Position the image independently */
+                top: 0; /* Align to the top */
+                left: 0; /* Align to the left */
+                z-index: 1; /* Set the stacking order */
+            }
+            .cover::before {
+                content: ""; /* Add an empty element */
+                position: absolute; /* Position it independently */
+                top: 0; /* Align to the top */
+                left: 0; /* Align to the left */
+                width: 100%; /* Make it as wide as the container */
+                height: 100%; /* Make it as tall as the container */
+                background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black overlay */
+                z-index: 2; /* Set the stacking order above the image */
+            }
+
+            .cover-content {
+                text-align: center; /* Center the text */
+                color: white; /* Make the text white */
+                padding: 32px; /* Add space inside the content box */
+                border-radius: 8px; /* Round the corners */
+                position: relative; /* Allow positioning */
+                z-index: 2; /* Set the stacking order above the overlay */
+            }
+
+            .cover-content h1 {
+                font-size: 56px; /* Set the size of the main title */
+                margin-bottom: 16px; /* Add space below the title */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow to the text */
+            }
+
+            .cover-content p {
+                font-size: 24px; /* Set the size of the subtitle */
+            }
+
+            .container {
+                max-width: 1200px; /* Set the maximum width of the content */
+                margin: 0 auto; /* Center the container */
+                padding: 32px; /* Add space inside the container */
+            }
+
+            .row {
+                display: flex; /* Use flexible layout */
+                margin-bottom: 64px; /* Add space below each row */
+                background-color: rgb(255, 255, 255); /* Set the background to white */
+                border-radius: 8px; /* Round the corners */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+                overflow: hidden; /* Hide anything that goes outside */
+            }
+
+            .image-section {
+                flex: 1; /* Make the image section flexible */
+                min-width: 300px; /* Set a minimum width for the image section */
+            }
+
+            .image-section img {
+                width: 100%; /* Make the image as wide as its container */
+                height: 100%; /* Make the image as tall as its container */
+                object-fit: cover; /* Make sure the image covers the area without stretching */
+            }
+
+            .content {
+                flex: 2; /* Make the content section twice as wide as the image section */
+                padding: 32px; /* Add space inside the content section */
+            }
+
+            h2 {
+                font-size: 32px; /* Set the size of section titles */
+                color: rgb(234, 137, 68); /* Set the color to orange */
+                margin-bottom: 16px; /* Add space below the title */
+            }
+
+            p {
+                font-size: 16px; /* Set the size of paragraph text */
+                margin-bottom: 16px; /* Add space below each paragraph */
+            }
+
+            a {
+                color: rgb(230, 138, 0); /* Set the link color to orange */
+                text-decoration: none; /* Remove the underline from links */
+            }
+
+            .content a:hover {
+                color: rgb(230, 138, 0); /* Set the link color to orange */
+                text-decoration: underline; /* Add underline when hovering over links */
+            }
+
+            iframe {
+                width: 100%; /* Make the map as wide as its container */
+                height: 500px; /* Set the height of the map */
+                border: 0; /* Remove the border around the map */         
+            }
+
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: rgba(15, 16, 16, 0.9);
+                color: rgba(210, 105, 30, 1);
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation bar section -->
+        <div class="navbar">
+            <div class="logo">  
+                <a href="../HomePage.html">AROUND THAI LANDS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../HomePage.html"><i class="bi bi-house-door"></i> HOME</a>
+                <a href="../Travel Blog Page/TravelBlog.html"><i class="bi bi-pen"></i> TRAVEL BLOG</a>
+                <a href="About Us.html"> <i class="bi bi-people"></i> ABOUT US</a>
+                <a href="../Contact Page/Contact Page.html"><i class="bi bi-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+        <!-- Cover section with background image and title -->
+        <div class="cover">
+            <img src="Temple.jpeg" alt="Thailand Cover">
+            <div class="cover-content">
+                <h1>ABOUT US</h1>
+                <p>Discover Thailand with Around Thai Lands</p>
+            </div>
+        </div>
+
+        <main class="container">
+            <!-- Our Story section -->
+            <div class="row">
+                <div class="image-section">
+                    <img src="Story.jpg" alt="Our Story">
+                </div>
+                <div class="content">
+                    <h2>Our Story</h2>
+                    <p>Around Thai Lands was founded by a small team of adventurers who fell in love with Thailand's vibrant culture and natural beauty. After years of exploring every corner of the country, we realized we wanted to share our experiences and help others discover the wonders of Thailand. What began as a passion project turned into a travel hub for curious minds and wanderers.</p>
+                    <p>Our blog combines personal travel experiences with practical advice to ensure every journey is memorable and immersive. We're here to uncover both the famous landmarks and the hidden gems that give Thailand its unique charm.</p>
+                </div>
+            </div>
+
+            <!-- Our Mission section -->
+            <div class="row">
+                <div class="image-section">
+                    <img src="Bridge.jpg" alt="Our Mission">
+                </div>
+                <div class="content">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to provide travelers with authentic, insightful, and engaging content that inspires them to explore the beauty and culture of Thailand. We aim to be the most trusted resource for travel information in Thailand. We believe travel is about more than just sightseeing — it's about connecting with local cultures, discovering new perspectives, and creating lasting memories.</p>
+                    <p>Whether it's city life, quiet beaches, or cultural landmarks, we want to help you explore Thailand like never before. Be sure to check our <a href="../Travel Blog Page/TravelBlog.html">blog page</a> for the latest travel tips, guides, and stories that will make your next adventure unforgettable.</p>
+                </div>
+            </div>
+
+            <!-- Contact Us section -->
+            <div class="row">
+                <div class="image-section">
+                    <img src="Mountain.jpg" alt="Contact Us">
+                </div>
+                <div class="content">
+                    <h2>Contact Us</h2>
+                    <p>We'd love to hear from you! Whether you have questions about a destination, want personalized recommendations, or are interested in collaborating, <a href="../Contact Page/Contact Page.html">feel free to reach out to us</a>.</p>
+                    <p>Thank you for joining us on this journey. We're here to make your travels through Thailand as smooth and memorable as possible!</p>
+                </div>
+            </div>
+
+            <!-- Google Maps iframe -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.7243324235656!2d100.65921491529735!3d13.735132501378887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d61a987e00607%3A0xda2e11759cf75777!2sStamford%20International%20University!5e0!3m2!1sen!2sth!4v1663193106049!5m2!1sen!2sth"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+        </main>
+
+        <!-- Footer section -->
+        <footer>
+            &copy; 2024 Around Thai Lands. All rights reserved.
+        </footer>
+    </body>
+</html>

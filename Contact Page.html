@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Page</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+             body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family for the page */
+                margin: 0; /* Removes default margin */
+                padding: 0; /* Removes default padding */
+                box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+                background-color: whitesmoke; /* Background color of the page */
+            }
+
+            /* Navbar styling */
+            .navbar {
+                background-color: rgba(15, 16, 16, 0.9); /* Semi-transparent background */
+                overflow: hidden; /* Ensures the content doesn't overflow */
+                position: sticky; /* Keeps navbar fixed at the top when scrolling */
+                top: 0; /* Position from the top */
+                display: flex; /* Flexbox layout for alignment */
+                justify-content: space-between; /* Spaces out logo and nav links */
+                padding: 10px 20px; /* Padding for the navbar */
+                z-index: 1000; /* Ensures navbar is on top of other elements */
+                align-items: center; /* Vertically centers items in the navbar */
+            }
+             /* Logo styling */
+            .navbar .logo a {
+                font-weight: bold; /* Makes the logo text bold */
+                font-size: 1.5em; /* Increases font size */
+                color: rgb(255, 255, 253); /* Logo text color */
+                text-decoration: none; /* Removes underline */
+                font-style: italic; /* Italicizes the logo text */
+            }
+
+            /* Navigation links styling */
+            .nav-links {
+                display: flex; /* Flexbox layout for nav links */
+                gap: 25px; /* Space between links */
+            }
+            .nav-links a {
+                color: rgb(217, 216, 213); /* Link color */
+                text-align: center; /* Center-aligns text */
+                padding: 14px 20px; /* Padding for links */
+                text-decoration: none; /* Removes underline */
+                font-weight: bold; /* Makes link text bold */
+                transition: color 0.2s, border-bottom 0.2s; /* Smooth transition for hover effects */
+            }
+
+            /* Hover effect for navigation links */
+            .nav-links a:hover {
+                color: rgb(234, 137, 68); /* Changes link color on hover */
+                border-bottom: 2px solid rgb(234, 137, 68); /* Adds underline on hover */
+            }
+
+            /* Header styling */
+            .header {
+                background-image: url('thailand.jpg'); /* Background image for header */
+                background-size: cover; /* Ensures background image covers the entire header */
+                background-position: center; /* Centers the background image */
+                height: 400px; /* Height of the header */
+                position: relative; /* Allows absolute positioning for pseudo-elements */
+                color: white; /* Text color in the header */
+                text-align: center; /* Centers text in the header */
+                display: flex; /* Flexbox layout for centering content */
+                justify-content: center; /* Centers content horizontally */
+                align-items: center; /* Centers content vertically */
+                z-index: 1; /* Ensures header is on top of other elements */
+            }
+            .header::before {
+                content: ""; /* Creates a pseudo-element */
+                position: absolute; /* Positions it absolutely */
+                top: 0; /* Positions it at the top */
+                left: 0; /* Positions it at the left */
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+                z-index: -1; /* Places it behind the header content */
+            }
+
+            /* Header title styling */
+            .header h1 {
+                font-size: 50px; /* Title font size */
+                margin: 0; /* Removes default margin */
+                color: white; /* Title text color */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
+            }
+
+            /* Header subtitle styling */
+            .header p {
+                font-size: 20px; /* Subtitle font size */
+            }
+
+            /* Main content styling */
+            .content {
+                text-align: center; /* Center-aligns text */
+                padding: 50px 20px; /* Padding for the content */
+            }
+
+            /* Content section heading styling */
+            .content h2 {
+                color: rgb(234, 137, 68); /* Section heading color */
+            }
+
+            /* Content section paragraph styling */
+            .content p {
+                color: #555; /* Paragraph text color */
+            }
+
+            /* Contact form styling */
+            .contact-form {
+                max-width: 600px; /* Maximum width of the form */
+                margin: 0 auto; /* Centers the form */
+            }
+
+            /* Input and textarea styling */
+            .contact-form input, .contact-form textarea {
+                width: 100%; /* Full width for inputs */
+                padding: 10px; /* Padding inside inputs */
+                margin: 10px 0; /* Vertical spacing between inputs */
+                border: 1px solid #ccc; /* Border color */
+                border-radius: 5px; /* Rounded corners */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font for inputs */
+            }
+
+            /* Submit button styling */
+            .contact-form button {
+                background-color: rgb(234, 137, 68); /* Button background color */
+                color: white; /* Button text color */
+                padding: 10px 20px; /* Padding for the button */
+                border: none; /* Removes default border */
+                border-radius: 5px; /* Rounded corners for the button */
+                cursor: pointer; /* Changes cursor to pointer on hover */
+            }
+
+            /* Button hover effect */
+            .contact-form button:hover {
+                background-color: rgb(226, 150, 88); /* Changes background color on hover */
+            }
+
+            /* Footer styling */
+            footer {
+                text-align: center; /* Centers footer text */
+                padding: 20px; /* Padding for the footer */
+                background-color: rgba(15, 16, 16, 0.9); /* Footer background color */
+                color: rgba(210, 105, 30, 1); /* Footer text color */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+                margin-top: 40px; /* Margin above the footer */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation bar section -->
+        <div class="navbar">
+            <div class="logo">  
+                <a href="../HomePage.html">AROUND THAI LANDS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../HomePage.html"><i class="bi bi-house-door"></i> HOME</a>
+                <a href="../Travel Blog Page/TravelBlog.html"><i class="bi bi-pen"></i> TRAVEL BLOG</a>
+                <a href="../About Us Page/About Us.html"><i class="bi bi-people"></i> ABOUT US</a>
+                <a href="Contact Page.html"><i class="bi bi-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+
+        <!-- Header section with background image -->
+        <div class="header">
+            <div>  
+                <h1>CONTACT</h1>
+                <p>Send us your questions, comments, or suggestions!</p>
+            </div>
+        </div>
+
+        <!-- Main content section -->
+        <div class="content">
+            <h2>GET IN TOUCH</h2>
+            <p> You can contact us using the form below</p>
+            
+            <!-- Contact form section -->
+            <div class="contact-form">
+                <form action="Thank you Page.html" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Footer section -->
+        <footer>
+            &copy; 2024 Around Thai Lands. All rights reserved.
+        </footer>
+
+    </body>
+</html>
+
+
+

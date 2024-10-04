@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pai: Tranquil Getaway</title>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+        <style>
+            /* Set the basic style for the whole page */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
+                margin: 0; /* Remove default margin */
+                padding: 0; /* Remove default padding */
+                background-color: whitesmoke; /*Sets the background color*/
+                color: rgb(51, 51, 51); /* Dark grey text color */
+            }
+        
+            /* Navbar styling */
+            .navbar {
+                background-color: rgba(15, 16, 16, 0.9); /* Dark background with slight transparency */
+                overflow: hidden; /* Ensures content doesn't overflow the navbar */
+                position: sticky; /* Keeps the navbar at the top of the page when scrolling */
+                top: 0; /* Aligns the navbar to the top of the viewport */
+                display: flex; /* Uses flexbox to align children in a row */
+                justify-content: space-between; /* Ensures space between the logo and navigation links */
+                padding: 10px 20px; /* Adds padding inside the navbar */
+                z-index: 1000; /* Ensures the navbar stays above other elements on the page */
+                align-items: center; /* Vertically aligns items in the navbar */
+            }
+
+            /* Logo styling inside the navbar */
+            .navbar .logo a {
+                font-weight: bold; /* Makes the logo text bold */
+                font-size: 1.5em; /* Increases the font size of the logo */
+                color: rgb(255, 255, 253); /* Sets the text color to white */
+                text-decoration: none; /* Removes the underline from the logo link */
+                font-style: italic; /* Applies italic styling to the logo text */
+            }
+
+            /* Navigation links container */
+            .nav-links {
+                display: flex; /* Uses flexbox to arrange links in a row */
+                gap: 25px; /* Adds spacing between the navigation links */
+            }
+
+            /* Individual navigation link styling */
+            .nav-links a {
+                color: rgb(217, 216, 213); /* Light gray color for the link text */
+                text-align: center; /* Centers the text inside each link */
+                padding: 14px 20px; /* Adds padding inside each link for better clickability */
+                text-decoration: none; /* Removes the underline from the links */
+                font-weight: bold; /* Makes the text of the links bold */
+                transition: color 0.2s, border-bottom 0.2s; /* Smooth transition for color and border changes on hover */
+            }
+
+            /* Hover effect for navigation links */
+            .nav-links a:hover {
+                color: rgb(234, 137, 68); /* Changes the text color to orange on hover */
+                border-bottom: 2px solid rgb(234, 137, 68); /* Adds an orange bottom border when hovered */
+            }
+        
+            /* Style for the cover image section */
+            .cover-image {
+                width: 100%; /* Full width */
+                height: 400px; /* viewport height */
+                background-image: url('https://kampatour.com/pic/blog/images/Chiang-Mai-to-Pai-11.jpg'); /* Background image */
+                background-size: cover; /* Cover the entire area */
+                background-position: center; /* Center the image */
+                position: relative; /* Position for layering text */
+                display: flex; /* Use flexbox for centering */
+                align-items: center; /* Center vertically */
+                justify-content: center; /* Center horizontally */
+            }
+        
+            /* Add a shadow overlay to the cover image */
+            .cover-image::before {
+                content: ''; /* Required for pseudo-elements */
+                position: absolute; /* Position over the image */
+                top: 0; /* Align to top */
+                left: 0; /* Align to left */
+                right: 0; /* Align to right */
+                bottom: 0; /* Align to bottom */
+                background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+            }
+        
+            /* Style for text over the cover image */
+            .cover-text {
+                position: relative; /* Position over the image */
+                color: rgb(255, 255, 255); /* White text color */
+                text-align: center; /* Center the text */
+                z-index: 1; /* Ensure text is above the overlay */
+            }
+        
+            /* Style for the main heading in the cover text */
+            .cover-text h1 {
+                font-size: 30px; /* Large font size for the main title */
+                margin-bottom: 16px; /* Space below the heading */
+                color: rgb(255, 255, 255); /* Ensure the text is white */
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /*Adds a subtle shadow behind the text*/
+
+            }
+        
+            /* Style for main headings */
+            h1, h2 {
+                color: rgb(234, 137, 68); /* Orange text color */
+            }
+        
+            p {
+                font-size: 20px; /* Set font size for paragraphs */
+            }
+        
+            /* Style for the main content area */
+            .content {
+                max-width: 1000px; /* Limit width */
+                margin: 40px auto; /* Center and add space above and below */
+                padding: 20px; /* Add padding inside */
+                background-color: rgb(255, 255, 255); /* White background */
+                border-radius: 8px; /* Round the corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+            }
+        
+            /* Style for each place section */
+            .place {
+                margin-bottom: 40px; /* Add space below each place */
+            }
+        
+            /* Style for images inside place sections */
+            .place img {
+                width: 100%; /* Full width */
+                height: auto; /* Keep the image's aspect ratio */
+                border-radius: 8px; /* Round the corners */
+            }
+        
+            /* Style for additional information about each place */
+            .place-info {
+                margin-top: 10px; /* Add space above the info */
+            }
+        
+            /* Style for fee and dress code text */
+            .fee, .dress-code {
+                font-style: italic; /* Italic text */
+                color: rgb(85, 85, 85); /* Medium grey text color */
+            }
+        
+            /* Style for map link */
+            a.map-link {
+                display: inline-block; /* Make it like a button */
+                margin-top: 10px; /* Add space above the link */
+                color: rgb(234, 137, 68); /* Orange text color */
+                text-decoration: none; /* Remove underline */
+                font-size: 20px; /* Set font size */
+            }
+        
+            /* Style for the footer at the bottom */
+            footer {
+                text-align: center; /* Centers the text content within the footer */
+                padding: 20px; /* Adds 20px of padding inside the footer on all sides */
+                background-color: rgba(15, 16, 16, 0.9); /* Sets a dark background with slight transparency for the footer */
+                color: rgba(210, 105, 30, 1); /* Applies a brownish-orange color to the text, fully opaque */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow */
+                margin-top: 40px; /* Adds 40px of space above the footer element */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- This is the navigation bar -->
+        <div class="navbar">
+            <div class="logo">  
+                <a href="../HomePage.html">AROUND THAI LANDS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../HomePage.html"><i class="bi bi-house-door"></i> HOME</a>
+                <a href="../Travel Blog Page/TravelBlog.html"><i class="bi bi-pen"></i> TRAVEL BLOG</a>
+                <a href="../About Us Page/About Us.html"> <i class="bi bi-people"></i> ABOUT US</a>
+                <a href="../Contact Page/Contact Page.html"><i class="bi bi-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+
+        <!-- Cover image section with overlay text -->
+        <div class="cover-image">
+            <div class="cover-text">
+                <h1>Pai: Tranquil Getaway</h1>
+                <p>Experience the Peaceful Charm of Pai</p>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            <!-- First place section -->
+            <div class="place">
+                <h2>1. Pai Canyon</h2>
+                <img src="https://images.squarespace-cdn.com/content/v1/5919f7bfd2b857811c061c2f/ee83a84c-cbc1-4123-811c-d953937e61e9/mae-hong-son-pai-canyon-sunset.jpg" alt="Pai Canyon">
+                <div class="place-info">
+                    <p>Pai Canyon is a natural wonder offering stunning views of the surrounding countryside. It's a great spot for hiking and watching the sunset.</p>
+                    <p class="fee">Entrance Fee: Free</p>
+                    <p class="dress-code">Dress Code: Casual/Hiking attire</p>
+                    <p>How to get there: Pai is located in northern Thailand, about 146 km from Chiang Mai. You can reach Pai by taking a bus or minivan from Chiang Mai, which takes approximately 3-4 hours through scenic mountain roads. Alternatively, you can rent a motorbike for a more adventurous journey.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/Pai+Canyon/@19.3061309,98.4499309,17z/data=!3m1!4b1!4m6!3m5!1s0x30da80e8f3eba0f9:0x83dbe124b195aec2!8m2!3d19.3061309!4d98.4525058!16s%2Fg%2F11btxhd4bg?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+
+            <!-- Second place section -->
+            <div class="place">
+                <h2>2. Tha Pai Hot Springs</h2>
+                <img src="https://www.mychiangmaitravel.com/wp-content/uploads/2017/01/tha_pai_hot_spring02.jpg" alt="Tha Pai Hot Springs">
+                <div class="place-info">
+                    <p>These natural hot springs provide a relaxing experience amidst lush greenery. Perfect for unwinding and soaking in the warm mineral waters.</p>
+                    <p class="fee">Entrance Fee: 300 THB</p>
+                    <p class="dress-code">Dress Code: Swimwear</p>
+                    <p>How to get there: The hot springs are located about 7 km from Pai town, accessible by motorbike or taxi.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/Tha+Pai+Hot+Spring/@19.3080849,98.4705951,17z/data=!3m1!4b1!4m6!3m5!1s0x30da80909ddc8b4d:0xbda0e54244134727!8m2!3d19.3080849!4d98.47317!16s%2Fg%2F11btwr_09m?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+
+            <!-- Third place section -->
+            <div class="place">
+                <h2>3. Pai Walking Street</h2>
+                <img src="https://png.pngtree.com/thumb_back/fw800/background/20240411/pngtree-lantern-festival-in-the-sky-at-pai-walking-street-image_15657185.jpg" alt="Pai Walking Street">
+                <div class="place-info">
+                    <p>Pai Walking Street is the heart of the town's nightlife, bustling with food stalls, shops, and live music. It's a great place to explore local culture and cuisine.</p>
+                    <p class="fee">Entrance Fee: Free</p>
+                    <p class="dress-code">Dress Code: Casual</p>
+                    <p>How to get there: Located in the center of Pai, the walking street is easily accessible by foot from most accommodations in town.</p>
+                    <a class="map-link" href="https://www.google.com/maps/place/Pai+Walking+Street/@19.3596294,98.4397904,17z/data=!3m1!4b1!4m6!3m5!1s0x30da81b26d13ebc5:0x8896296b12ac1ce9!8m2!3d19.3596294!4d98.4423653!16s%2Fg%2F11fncqz9hl?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer section -->
+        <footer>
+            &copy; 2024 Around Thai Lands. All rights reserved.
+        </footer>
+    </body>
+</html>
